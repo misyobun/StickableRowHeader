@@ -21,7 +21,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-   implementation 'com.github.misyobun:StickableRowHeader:Tag'
+   implementation 'com.github.misyobun:StickableRowHeader:1.0.1'
 }
 ``` 
 
