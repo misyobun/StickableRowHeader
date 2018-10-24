@@ -1,6 +1,5 @@
-# StickableRowHeader <a href='https://bintray.com/misyobun/maven/StickableRowHeader/1.0.0/link'><img src='https://api.bintray.com/packages/misyobun/maven/StickableRowHeader/images/download.svg?version=1.0.0'></a>
-It will stick together.
-
+# StickableRowHeader 
+ [ ![Download](https://api.bintray.com/packages/misyobun/maven/StickableRowHeader/images/download.svg) ](https://bintray.com/misyobun/maven/StickableRowHeader/_latestVersion)
 
 # SS
 
