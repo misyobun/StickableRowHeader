@@ -9,7 +9,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository url: "./rep/"
-            pom.version = "1.0.0"
+            pom.version = "1.0.1"
             pom.groupId = "msb.jp.stickablerowheader"
             pom.artifactId = "msb-stickable-row-header"
         }
@@ -41,7 +41,7 @@ android {
 }
 
 group = 'msb.jp.stickablerowheader'
-version = '1.0.0'
+version = '1.0.1'
 def siteUrl = 'https://github.com/misyobun/StickableRowHeader'
 def gitUrl = 'https://github.com/misyobun/StickableRowHeader.git'
 
