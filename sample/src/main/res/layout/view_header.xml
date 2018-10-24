@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="header" type="jp.msb.kib.stickablerowheader.Header"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/header_shadow"
+            android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/headerTitle"
+                android:layout_width="186dp"
+                android:layout_height="60dp"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:text="@{header.title}"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/bgwhite"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
