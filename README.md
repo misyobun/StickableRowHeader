@@ -1,4 +1,4 @@
-# StickyableRowHeader
+# StickableRowHeader
 It will stick together.
 
 # SS
