@@ -3,14 +3,15 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 uploadArchives {
     repositories {
         mavenDeployer {
             repository url: "./rep/"
-            pom.version = "1.4.3"
-            pom.groupId = "jp.co.misyobun.lib.versionupdater"
-            pom.artifactId = "msb-version-updater"
+            pom.version = "1.0.0"
+            pom.groupId = "msb.jp.stikablerowheader"
+            pom.artifactId = "msb-stikable-row-header"
         }
     }
 }
@@ -18,16 +19,12 @@ uploadArchives {
 android {
     compileSdkVersion 28
 
-
-
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -43,6 +40,63 @@ android {
 
 }
 
+group = 'msb.jp.stikablerowheader'
+version = '1.0.0'
+def siteUrl = 'https://github.com/misyobun/StickableRowHeader'
+def gitUrl = 'https://github.com/misyobun/StickableRowHeader.git'
+
+bintray {
+    def properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    user = properties.getProperty("bintray_user")
+    key = properties.getProperty("bintray_api_key")
+
+    configurations = ['archives']
+    pkg {
+        repo = 'maven'
+        name = 'StickableRowHeader'
+        desc = 'Like to be UItableView Section .'
+        websiteUrl = siteUrl
+        issueTrackerUrl = 'https://github.com/misyobun/StickableRowHeader/issues'
+        vcsUrl = gitUrl
+        licenses = ['MIT']
+        labels = ['android']
+        publicDownloadNumbers = true
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name 'StickableRowHeader'
+                url siteUrl
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'http://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'misyobun'
+                        name 'Naoto Takahashi'
+                        email 'naoto0101@gmail.com'
+                    }
+                }
+                scm {
+                    connection 'https://github.com/misyobun/StickableRowHeader.git'
+                    developerConnection 'https://github.com/misyobun/StickableRowHeader.git'
+                    url siteUrl
+                }
+                dependencies {
+                }
+            }
+        }
+    }
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -52,4 +106,34 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-beta02'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-beta02'
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+task findConventions << {
+    println project.getConvention()
+}
+repositories {
+    mavenCentral()
 }
