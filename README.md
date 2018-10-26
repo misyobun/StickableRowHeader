@@ -25,6 +25,16 @@ dependencies {
 }
 ``` 
 
+or 
+
+You can get from jcenter.
+
+```
+dependencies {
+    implementation 'msb.jp.stickablerowheader:lib:1.0.1'
+}
+```
+
 # SS
 
 ![](https://user-images.githubusercontent.com/509448/47357409-920c0300-d701-11e8-8a99-ef62e89acb45.gif)
