@@ -21,7 +21,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-   implementation 'com.github.misyobun:StickableRowHeader:1.0.1'
+   implementation 'com.github.misyobun:StickableRowHeader:1.0.2'
 }
 ``` 
 
@@ -31,7 +31,7 @@ You can get from jcenter.
 
 ```
 dependencies {
-    implementation 'msb.jp.stickablerowheader:lib:1.0.1'
+    implementation 'msb.jp.stickablerowheader:lib:1.0.2'
 }
 ```
 
