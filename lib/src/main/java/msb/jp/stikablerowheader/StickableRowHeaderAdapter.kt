@@ -19,7 +19,7 @@ enum class SectionAdapterViewType(val rawValue: Int) {
 abstract class StickableRowHeaderAdapter : RecyclerView.Adapter<StickableRowHeaderAdapter.RootViewHolder>(),
     StickableRowHeaderDelegate {
 
-    protected var items: List<BaseItem> = emptyList()
+    protected var items = ArrayList<BaseItem>()
 
 
     override fun getItemCount(): Int {
@@ -27,7 +27,11 @@ abstract class StickableRowHeaderAdapter : RecyclerView.Adapter<StickableRowHead
     }
 
     fun update(items: List<BaseItem>) {
-        this.items = items
+        val updateItems = ArrayList<BaseItem>()
+        items.forEach {
+            updateItems.add(it)
+        }
+        this.items = updateItems
         notifyDataSetChanged()
     }
 
